@@ -1,0 +1,58 @@
+
+@import './null.css';
+@import './data.scss';
+
+
+
+html,
+body,
+#root{
+    height: 100%;
+}
+
+
+
+
+.app {
+    height: 100%;
+    background-color: $color1;
+    font-family: $mainFont;
+}
+.app__contaniner {
+}
+._contaniner {
+    max-width: 650px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 5px;
+    overflow: hidden;
+}
+.app__body {
+    padding: 3vh 0;
+    height: 100%;
+    background-color: $color2;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    justify-content: space-around;
+}
+.app__title{
+    font-size: 2rem;
+    font-weight: 800;
+    color: $color5;
+}
+.app__tasks{
+    width: 85%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    overflow: scroll;
+    overflow: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.app__tasks::-webkit-scrollbar{
+    width: 0;
+}

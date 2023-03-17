@@ -1,0 +1,54 @@
+
+@import './data.scss';
+
+.inputTask {
+    width: 85%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.shake{
+    animation: .3s shake;
+}
+.shake > input{
+    font-weight: 800;
+    border-top: solid rgb(149, 0, 0) 2px;
+    border-left: solid rgb(149, 0, 0) 2px;
+    border-bottom: solid rgb(149, 0, 0) 2px;
+}
+.shake > button{
+    border-top: solid rgb(149, 0, 0) 2px;
+    border-right: solid rgb(149, 0, 0) 2px;
+    border-bottom: solid rgb(149, 0, 0) 2px;
+}
+.inputTask__input {
+    width: 100%;
+    height: fit-content;
+    border: 0;
+    border-radius: 6px 0 0 6px;
+    padding: 0 12px;
+    color: $color5;
+    font-size: 1.3rem;
+}
+.inputTask__input:active,
+.inputTask__input:focus {
+    outline: none;
+}
+.inputTask__input::placeholder{
+    font-size: 1rem;
+}
+.inputTask__button {
+    height: 100%;
+    border: 0;
+    border-radius: 0 6px 6px 0;
+    color: $color1;
+    background-color: $color4;
+    cursor: pointer;
+}
+@keyframes shake {
+    0%{transform: translateX(0)}
+    25%{transform: translateX(-5px)}
+    50%{transform: translateX(0)}
+    75%{transform: translateX(5px)}
+    100%{transform: translateX(0)}
+}

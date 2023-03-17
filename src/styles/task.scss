@@ -1,0 +1,125 @@
+
+@import './data.scss';
+
+
+$remBase: 16; //set base font size. unitless value in pixels.
+$widthMin: 310; //set small breakpoint. unitless value in pixels.
+$widthMax: 720; //set large breakpoint. unitless value in pixels.
+
+@mixin font-size($valueMin, $valueMax) {
+	// turn mixin parameters into rem value.
+	$fontMin: $valueMin * $remBase;
+	$fontMax: $valueMax * $remBase;
+	
+	// set minimum font size. give it rem value.
+	font-size: $valueMin * 1rem;
+	
+	// set font size between min and max breakpoints.
+	@media (min-width: #{$widthMin}px) {
+		font-size: calc( #{$fontMin}px + (#{$fontMax} - #{$fontMin}) * ((100vw - #{$widthMin}px) / (#{$widthMax} - #{$widthMin})));
+	}
+
+	// set font size above max breakpoint
+	@media (min-width: #{$widthMax}px) {
+		font-size: $valueMax * 1rem;
+	}
+}
+
+
+.task {
+    width: 100%;
+}
+.task__body {
+    width: 100%;
+    height: fit-content;
+    padding: 6px 8px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    border-radius: 6px;
+    background-color: $color1;
+}
+.task__isDone{
+    transform: scale(1.5) rotate(0deg);
+    transition: all .5s ease;
+}
+.task__isDone:checked{
+    transform: scale(1.5) rotate(360deg);
+}
+.task__id {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.task__time {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: $color5;
+}
+.task__date {
+    text-align: center;
+    margin: -6px 0 0 0;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: $color5;
+}
+.task__text {
+    flex: 1 1 auto;
+    height: fit-content;
+    margin: 0;
+    word-break: break-word;
+    color: $color5;
+    @include font-size(0.8, 1.5);
+    font-weight: 400;
+}
+.done{
+    background-color: rgb(222, 222, 222);
+    color: black;
+}
+.task__text.processing{
+    text-decoration: line-through;
+}
+.task__change,
+.task__remove {
+    cursor: pointer;
+    flex: 0 0 auto;
+}
+
+@media (max-width: 450px) {
+    .task__body{
+        padding: 18px 6px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, fit-content);
+        justify-items: center;
+        align-content: center;
+    }
+    .task__isDone{
+        grid-column: 1;
+        grid-row: 1;
+    }
+    .task__id{
+        grid-column: 2;
+        grid-row: 1;
+    }
+    .task__text{
+        grid-column: 1/3;
+        grid-row: 2;
+    }
+    .task__change{
+        grid-column: 1;
+        grid-row: 3;
+    }
+    .task__remove{
+        grid-column: 2;
+        grid-row: 3;
+    }
+    .task__text{
+        text-align: center;
+    }
+    .task__id.done,
+    .task__remove.done{
+        grid-column: 1/3;
+    }
+}

@@ -1,0 +1,80 @@
+@import './data.scss';
+
+.changeTask {
+    position: absolute;
+    z-index: 20;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.199);
+}
+.hide {
+    display: none;
+}
+.changeTask__body {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 88%;
+    max-width: 600px;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 12px;
+    border-radius: 8px;
+    background-color: $color2;
+    box-shadow: 1px 1px 10px $color5;
+}
+.changeTask__title {
+    margin: 12px 0;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: $color5;
+    text-shadow: 1px 1px 1px $color1;
+}
+.changeTask__form {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+}
+.changeTask__input {
+    padding: 2px 8px;
+    border-radius: 6px 6px 0 0;
+}
+.changeTask__change {
+    border-radius: 0 0 6px 6px;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    text-shadow: 1px 1px 3px $color5;
+    background-color: $color3;
+}
+
+.changeTask__close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 30px;
+    height: 30px;
+}
+.changeTask__close-item {
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 6px;
+    background-color: $color5;
+    cursor: pointer;
+}
+.changeTask__close-item:nth-child(1) {
+    transform: rotate(45deg);
+}
+.changeTask__close-item:nth-child(2) {
+    transform: rotate(-45deg);
+}
