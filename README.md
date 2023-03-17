@@ -1,2 +1,1 @@
-webSite's url:
----https://anthonyslip.github.io/ToDoApp/---
+webSite's url: https://anthonyslip.github.io/ToDoApp/
